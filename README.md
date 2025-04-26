@@ -1,56 +1,73 @@
-# RESTful API - Laravel 12
+# RESTful API + Frontend Consumer
+
+Project sederhana RESTful API menggunakan Laravel + Frontend untuk konsumsi API.
+
+## Project Overview
+
+-   **Backend (Laravel 12)** → Laravel (`localhost:8000`)
+-   **Frontend Consumer** → Laravel + jQuery (`localhost:8005`)
 
 ---
 
-## Instruksi Instalasi
+## Instalasi
 
-### 1. Clone Repository
+Clone project:
 
-```sh
+```bash
 git clone https://github.com/kamto-s/restful-api.git
 cd restful-api
 ```
 
-### 2. Install Dependency
+Composer install
 
 ```bash
 composer install
 ```
 
-### 3. Setup Environment
+Copy `.env`:
 
-Copy file `env.example` enjadi `.env`:
-
-```sh
+```bash
 cp .env.example .env
 ```
 
-### 4. Generate Application Key
+Generate app key:
 
-```sh
-php artisan migrate
-```
-
-### 5. Migrasi Database
-
-```sh
+```bash
 php artisan key:generate
 ```
 
-## Cara Menjalankan Aplikasi
+Set konfigurasi database di file `.env`, lalu jalankan migrasi:
 
-Jalankan server lokal Laravel:
+```bash
+php artisan migrate
+```
 
-```sh
+## Menjalankan Project
+
+Backend API (port 8000)
+
+```bash
 php artisan serve --port=8000
 ```
 
-### Daftar API Endpoint
+Frontend Consumer (port 8005)
 
-| Method | URL             | Keterangan                       |
-| ------ | --------------- | -------------------------------- |
-| GET    | /api/users      | Ambil semua user                 |
-| GET    | /api/users/{id} | Ambil detail user berdasarkan ID |
-| POST   | /api/users      | Tambah user baru                 |
-| PUT    | /api/users/{id} | Update user berdasarkan ID       |
-| DELETE | /api/users/{id} | Hapus user berdasarkan ID        |
+```bash
+php artisan serve --port=8005
+```
+
+## API Endpoint
+
+| Method | URL             | Keterangan                |
+| ------ | --------------- | ------------------------- |
+| GET    | /api/users      | Ambil semua user          |
+| GET    | /api/users/{id} | Ambil user berdasarkan ID |
+| POST   | /api/users      | Tambah user baru          |
+| PUT    | /api/users/{id} | Update user               |
+| DELETE | /api/users/{id} | Hapus user                |
+
+## Arsitektur & Alur Kerja
+
+-   **Frontend** mengirimkan request AJAX ke **Backend API**.
+-   **Backend API** memproses request dan merespon dalam format **JSON**.
+-   **Frontend** akan: - Menampilkan data user (GET), - Menampilkan error validasi di form (POST/PUT gagal), - Mereset form dan refresh daftar user jika operasi berhasil.
