@@ -7,8 +7,6 @@ Project sederhana RESTful API menggunakan Laravel + Frontend untuk konsumsi API.
 -   **Backend (Laravel 12)** → Laravel (`localhost:8000`)
 -   **Frontend Consumer** → Laravel + jQuery (`localhost:8005`)
 
----
-
 ## Instalasi
 
 Clone project:
@@ -67,14 +65,16 @@ php artisan serve --port=8005
 | DELETE | /api/users/{id} | Hapus user                |
 
 ## Arsitektur & Alur Kerja
-- **Frontend** mengirimkan request AJAX ke **Backend API**.
-- **Backend API** memproses request dan merespon dalam format **JSON**.
-- **Frontend** akan:
-  - Menampilkan data user (GET),
-  - Menampilkan error validasi di form (POST/PUT gagal),
-  - Mereset form dan refresh daftar user jika operasi berhasil.
+
+-   **Frontend** mengirimkan request AJAX ke **Backend API**.
+-   **Backend API** memproses request dan merespon dalam format **JSON**.
+-   **Frontend** akan:
+    -   Menampilkan data user (GET),
+    -   Menampilkan error validasi di form (POST/PUT gagal),
+    -   Mereset form dan refresh daftar user jika operasi berhasil.
 
 ## Catatan Tambahan
-- Jika validasi gagal (misal: email sudah ada), form akan tetap menampilkan data user yang di-edit.
-- Jika operasi berhasil, form akan otomatis reset dan tabel data user akan diperbarui.
-- Pastikan port 8000 dan 8005 tidak bentrok dengan service lain di lokal.
+
+-   Jika validasi gagal (misal: email sudah ada), form akan tetap menampilkan data user yang di-edit.
+-   Jika operasi berhasil, form akan otomatis reset dan tabel data user akan diperbarui.
+-   Pastikan port 8000 dan 8005 tidak bentrok dengan service lain di lokal.
