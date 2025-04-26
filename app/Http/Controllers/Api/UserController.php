@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -68,7 +69,6 @@ class UserController extends Controller
     public function show(string $id)
     {
         $data = User::find($id);
-
 
         if ($data) {
             $filterData = $data->only(['id', 'name', 'email', 'age']);
@@ -137,6 +137,21 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = User::find($id);
+
+        if (!$data) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Data tidak ditemukan',
+                'data' => null,
+            ]);
+        } else {
+            $data->delete();
+            return response()->json([
+                'status' => true,
+                'message' => 'Data berhasil dihapus',
+                'data' => null,
+            ]);
+        }
     }
 }
