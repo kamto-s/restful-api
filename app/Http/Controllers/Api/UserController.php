@@ -115,7 +115,7 @@ class UserController extends Controller
                 'status' => false,
                 'message' => 'Gagal mengubah data',
                 'data' => $validator->errors(),
-            ]);
+            ], 422);
         }
 
         $data->name = $request->name;

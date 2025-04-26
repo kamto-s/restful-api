@@ -100,6 +100,8 @@
                     success: function(response) {
                         alert(response.message);
                         getUser();
+
+                        // reset form
                         $('#userForm')[0].reset();
 
                         $('#id').val('');
@@ -110,11 +112,11 @@
                     error: function(xhr, status, error) {
                         const res = xhr.responseJSON;
 
-                        console.log(res);
-
                         $('#nameError').text('');
                         $('#emailError').text('');
                         $('#ageError').text('');
+
+                        console.log(res.data);
 
                         if (res && res.data) {
                             if (res.data.name) {
