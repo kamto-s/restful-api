@@ -67,7 +67,9 @@ php artisan serve --port=8005
 | DELETE | /api/users/{id} | Hapus user                |
 
 ## Arsitektur & Alur Kerja
-
--   **Frontend** mengirimkan request AJAX ke **Backend API**.
--   **Backend API** memproses request dan merespon dalam format **JSON**.
--   **Frontend** akan: - Menampilkan data user (GET), - Menampilkan error validasi di form (POST/PUT gagal), - Mereset form dan refresh daftar user jika operasi berhasil.
+- **Frontend** mengirimkan request AJAX ke **Backend API**.
+- **Backend API** memproses request dan merespon dalam format **JSON**.
+- **Frontend** akan:
+  - Menampilkan data user (GET),
+  - Menampilkan error validasi di form (POST/PUT gagal),
+  - Mereset form dan refresh daftar user jika operasi berhasil.
