@@ -73,3 +73,8 @@ php artisan serve --port=8005
   - Menampilkan data user (GET),
   - Menampilkan error validasi di form (POST/PUT gagal),
   - Mereset form dan refresh daftar user jika operasi berhasil.
+
+## Catatan Tambahan
+- Jika validasi gagal (misal: email sudah ada), form akan tetap menampilkan data user yang di-edit.
+- Jika operasi berhasil, form akan otomatis reset dan tabel data user akan diperbarui.
+- Pastikan port 8000 dan 8005 tidak bentrok dengan service lain di lokal.
